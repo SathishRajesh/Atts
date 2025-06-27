@@ -1,12 +1,51 @@
-# React + Vite
+# 🛠 Full Stack MERN Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Full Stack MERN (MongoDB, Express, React, Node.js)** application that includes:
+ ##FRONTEND
+- ✅ User Authentication (JWT: Access + Refresh Tokens)
+- ✅ Vite + React Frontend
+- ✅ Express + MongoDB Backend
+- ✅ CRUD Operations (Product/User management)
+- ✅ Table Server-side Pagination
+- ✅ Cookie-based login persistence
+- ✅ Environment-safe configuration
 
-Currently, two official plugins are available:
+### 🔐 Authentication
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User registration and login
+- JWT access token (expires in 1 day)
+- Refresh token (stored in HTTP-only cookie, expires in 7 days)
+- Secure logout and token renewal
 
-## Expanding the ESLint configuration
+### ⚛️ Frontend (React + Vite)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Built using **Vite** for fast development
+- React hooks & context for state
+- Login persistence using `axios` + `withCredentials`
+- Paginated table view for product list
+
+## BACKEND
+
+-- Built with Node.js, Express, and MongoDB using MVC architecture
+
+-- Implements JWT authentication with access & refresh tokens
+
+-- Secure password hashing using bcryptjs
+
+-- Robust input validation and error handling
+
+-- Supports full CRUD operations with pagination
+
+-- Uses Mongoose for schema modeling and lean queries
+
+-- Stores refresh tokens in secure HTTP-only cookies
+
+-- CORS configured for frontend communication
+
+-- Integrated Winston logger for request/error tracking
+
+-- Configurable via environment variables (.env)
+
+-- Modular routing and middleware for scalability
+
+--Disables Mongoose buffering for reliability in serverless environments
