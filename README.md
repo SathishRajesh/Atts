@@ -50,4 +50,6 @@ This project is a **Full Stack MERN (MongoDB, Express, React, Node.js)** applica
 
 --Disables Mongoose buffering for reliability in serverless environments
 
---->Backend github link-https://github.com/SathishRajesh/AttsBE
+---> Backend github link-https://github.com/SathishRajesh/AttsBE
+
+--> Live Url :https://atts-frontend.vercel.app/login
