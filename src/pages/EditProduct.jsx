@@ -78,7 +78,7 @@ const EditProduct = ({
         Swal.fire({
           icon: "success",
           title: "Success",
-          text: "Product Updated Successfully",
+          text:res?.data?.message,
           showConfirmButton: true,
           timer: 2000
         });
