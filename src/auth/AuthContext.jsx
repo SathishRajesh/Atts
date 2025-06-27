@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       console.error("Logout failed:", err);
     } finally {
-      console.log("Logout: Clearing tokens and data.");
       setAccessToken("");
       setUserData(null);
       axiosInstance.defaults.headers.common.Authorization = "";
@@ -41,7 +40,6 @@ export const AuthProvider = ({ children }) => {
   const refreshToken = useCallback(async () => {
     try {
       setLoading(true);
-      console.log("AuthContext: Attempting initial token refresh...");
       const res = await axios.post(
         `${apiUrl}/api/auth/refresh-token`,
         {},
@@ -51,7 +49,6 @@ export const AuthProvider = ({ children }) => {
       const token = res?.data?.token || "";
       const user = res?.data?.user || null;
 
-      console.log("AuthContext: Refresh token successful. Setting state.");
       setAccessToken(token);
       setUserData(user);
 
@@ -64,9 +61,6 @@ export const AuthProvider = ({ children }) => {
 
     } finally {
       setLoading(false);
-      console.log(
-        "AuthContext: Initial authentication check complete. Loading set to false."
-      );
     }
   }, []);
 
@@ -85,12 +79,10 @@ export const AuthProvider = ({ children }) => {
   }, [accessToken, userData, Logout, setAccessToken, setUserData]);
 
   useEffect(() => {
-    console.log("AuthContext: Setting up Axios Interceptors.");
     setupAxiosInterceptors(authRef);
   }, []);
 
   useEffect(() => {
-    console.log("AuthContext: Running initial refreshToken effect.");
     refreshToken();
   }, [refreshToken]);
 
@@ -98,7 +90,6 @@ export const AuthProvider = ({ children }) => {
     async (data) => {
       try {
         setLoading(true);
-        console.log("AuthContext: Attempting login...");
         const response = await axios.post(
           `${apiUrl}/api/auth/login`,
           data,
@@ -109,8 +100,6 @@ export const AuthProvider = ({ children }) => {
 
         const token = response?.data?.token || "";
         const user = response?.data?.user || null;
-
-        console.log("AuthContext: Login successful. Setting state.");
         setAccessToken(token);
         setUserData(user);
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;

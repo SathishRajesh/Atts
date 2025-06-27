@@ -34,7 +34,6 @@ export const setupAxiosInterceptors = (auth) => {
           auth.current.setAccessToken(newToken);
 
           originalRequest.headers.Authorization = `Bearer ${newToken}`;
-          console.log("settingQ");
           return axios({
             ...originalRequest,
             headers: {

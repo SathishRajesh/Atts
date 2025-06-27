@@ -26,7 +26,6 @@ const Product = () => {
   useEffect(() => {
     handleGet(page, limit);
   }, [page, limit]);
-console.log(page,limit)
   const handleGet = async (page, limit) => {
     try {
        const payload = {
@@ -36,7 +35,6 @@ console.log(page,limit)
       const res = await axiosInstance.post(
         `${apiUrl}/api/products/productData`,payload
       );
-      console.log(res)
       setProductData(res?.data?.data || []);
       setTotalCount(res?.data?.totalCount || 0);
     } catch (error) {

@@ -90,7 +90,6 @@ const AddProduct = ({ addProductOpen, setAddProductOpen, handleGet }) => {
     setDetails({ metal: "", purity: "", amount: "", date: null });
     setErrors({});
   };
-console.log(details)
   return (
     <Dialog open={addProductOpen} onClose={handleCloseAddProduct} fullWidth maxWidth="sm">
       <DialogTitle>Add New Product</DialogTitle>
